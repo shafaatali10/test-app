@@ -1,0 +1,34 @@
+{
+  "changelogDate": "20230618134558",
+  "dto": "no",
+  "entityTableName": "request",
+  "fields": [
+    {
+      "fieldName": "rfc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "swid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDraft",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "requestLink",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Request",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

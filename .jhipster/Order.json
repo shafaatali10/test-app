@@ -1,0 +1,30 @@
+{
+  "changelogDate": "20230618134733",
+  "dto": "no",
+  "entityTableName": "jhi_order",
+  "fields": [
+    {
+      "fieldName": "orderType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isApproved",
+      "fieldType": "Boolean"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Order",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,38 @@
+{
+  "changelogDate": "20230618140018",
+  "dto": "no",
+  "entityTableName": "meta_data",
+  "fields": [
+    {
+      "fieldName": "stidClass",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stidColumnName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataLevel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "initialLoadType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "partitionSchema",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderId",
+      "fieldType": "Long"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "MetaData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

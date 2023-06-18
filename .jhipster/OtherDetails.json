@@ -1,0 +1,34 @@
+{
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "mandatorColumn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isHubUsageReqd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "insertChars",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tableAccessMethod",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oneWmpView",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderId",
+      "fieldType": "Long"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

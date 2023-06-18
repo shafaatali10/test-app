@@ -1,0 +1,42 @@
+{
+  "changelogDate": "20230618135737",
+  "dto": "no",
+  "entityTableName": "general_data",
+  "fields": [
+    {
+      "fieldName": "tableUsage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dbSelection",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tableName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hasDataMoreThan5Million",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isParallelizationReqd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "recoveryClass",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderId",
+      "fieldType": "Long"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "GeneralData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
