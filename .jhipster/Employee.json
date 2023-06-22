@@ -1,0 +1,38 @@
+{
+  "changelogDate": "20230622073538",
+  "dto": "no",
+  "entityTableName": "employee",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "salary",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "deptId",
+      "fieldType": "Long"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Employee",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "department",
+      "relationshipName": "department",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

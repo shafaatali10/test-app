@@ -298,9 +298,11 @@ class MetaDataResourceIT {
         partialUpdatedMetaData.setId(metaData.getId());
 
         partialUpdatedMetaData
+            .stidClass(UPDATED_STID_CLASS)
             .stidColumnName(UPDATED_STID_COLUMN_NAME)
+            .dataLevel(UPDATED_DATA_LEVEL)
             .initialLoadType(UPDATED_INITIAL_LOAD_TYPE)
-            .orderId(UPDATED_ORDER_ID);
+            .partitionSchema(UPDATED_PARTITION_SCHEMA);
 
         restMetaDataMockMvc
             .perform(
@@ -314,12 +316,12 @@ class MetaDataResourceIT {
         List<MetaData> metaDataList = metaDataRepository.findAll();
         assertThat(metaDataList).hasSize(databaseSizeBeforeUpdate);
         MetaData testMetaData = metaDataList.get(metaDataList.size() - 1);
-        assertThat(testMetaData.getStidClass()).isEqualTo(DEFAULT_STID_CLASS);
+        assertThat(testMetaData.getStidClass()).isEqualTo(UPDATED_STID_CLASS);
         assertThat(testMetaData.getStidColumnName()).isEqualTo(UPDATED_STID_COLUMN_NAME);
-        assertThat(testMetaData.getDataLevel()).isEqualTo(DEFAULT_DATA_LEVEL);
+        assertThat(testMetaData.getDataLevel()).isEqualTo(UPDATED_DATA_LEVEL);
         assertThat(testMetaData.getInitialLoadType()).isEqualTo(UPDATED_INITIAL_LOAD_TYPE);
-        assertThat(testMetaData.getPartitionSchema()).isEqualTo(DEFAULT_PARTITION_SCHEMA);
-        assertThat(testMetaData.getOrderId()).isEqualTo(UPDATED_ORDER_ID);
+        assertThat(testMetaData.getPartitionSchema()).isEqualTo(UPDATED_PARTITION_SCHEMA);
+        assertThat(testMetaData.getOrderId()).isEqualTo(DEFAULT_ORDER_ID);
     }
 
     @Test

@@ -287,7 +287,7 @@ class RequestResourceIT {
         Request partialUpdatedRequest = new Request();
         partialUpdatedRequest.setId(request.getId());
 
-        partialUpdatedRequest.rfc(UPDATED_RFC).swid(UPDATED_SWID).isDraft(UPDATED_IS_DRAFT).requestLink(UPDATED_REQUEST_LINK);
+        partialUpdatedRequest.rfc(UPDATED_RFC).status(UPDATED_STATUS).isDraft(UPDATED_IS_DRAFT).requestLink(UPDATED_REQUEST_LINK);
 
         restRequestMockMvc
             .perform(
@@ -302,8 +302,8 @@ class RequestResourceIT {
         assertThat(requestList).hasSize(databaseSizeBeforeUpdate);
         Request testRequest = requestList.get(requestList.size() - 1);
         assertThat(testRequest.getRfc()).isEqualTo(UPDATED_RFC);
-        assertThat(testRequest.getSwid()).isEqualTo(UPDATED_SWID);
-        assertThat(testRequest.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testRequest.getSwid()).isEqualTo(DEFAULT_SWID);
+        assertThat(testRequest.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testRequest.getIsDraft()).isEqualTo(UPDATED_IS_DRAFT);
         assertThat(testRequest.getRequestLink()).isEqualTo(UPDATED_REQUEST_LINK);
     }

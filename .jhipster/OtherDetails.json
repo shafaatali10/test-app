@@ -1,5 +1,7 @@
 {
+  "changelogDate": "20230622072704",
   "dto": "no",
+  "entityTableName": "other_details",
   "fields": [
     {
       "fieldName": "mandatorColumn",
@@ -27,8 +29,10 @@
     }
   ],
   "jpaMetamodelFiltering": false,
+  "name": "OtherDetails",
   "pagination": "no",
   "readOnly": false,
   "relationships": [],
+  "searchEngine": "no",
   "service": "serviceClass"
 }

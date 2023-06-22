@@ -1,0 +1,30 @@
+{
+  "changelogDate": "20230622073407",
+  "dto": "no",
+  "entityTableName": "department",
+  "fields": [
+    {
+      "fieldName": "deptCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deptName",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Department",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "department",
+      "relationshipName": "employees",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

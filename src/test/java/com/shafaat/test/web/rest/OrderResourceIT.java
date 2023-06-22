@@ -277,7 +277,7 @@ class OrderResourceIT {
         Order partialUpdatedOrder = new Order();
         partialUpdatedOrder.setId(order.getId());
 
-        partialUpdatedOrder.requestId(UPDATED_REQUEST_ID).description(UPDATED_DESCRIPTION);
+        partialUpdatedOrder.requestId(UPDATED_REQUEST_ID);
 
         restOrderMockMvc
             .perform(
@@ -293,7 +293,7 @@ class OrderResourceIT {
         Order testOrder = orderList.get(orderList.size() - 1);
         assertThat(testOrder.getOrderType()).isEqualTo(DEFAULT_ORDER_TYPE);
         assertThat(testOrder.getRequestId()).isEqualTo(UPDATED_REQUEST_ID);
-        assertThat(testOrder.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testOrder.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testOrder.getIsApproved()).isEqualTo(DEFAULT_IS_APPROVED);
     }
 
