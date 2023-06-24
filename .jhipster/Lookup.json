@@ -1,0 +1,46 @@
+{
+  "changelogDate": "20230624165122",
+  "dto": "no",
+  "entityTableName": "lookup",
+  "fields": [
+    {
+      "fieldName": "lookupCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lookupValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "displaySequence",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "viewName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "category",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dependentCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Lookup",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -5,6 +5,7 @@ import metaData from 'app/entities/meta-data/meta-data.reducer';
 import otherDetails from 'app/entities/other-details/other-details.reducer';
 import department from 'app/entities/department/department.reducer';
 import employee from 'app/entities/employee/employee.reducer';
+import lookup from 'app/entities/lookup/lookup.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -15,6 +16,7 @@ const entitiesReducers = {
   otherDetails,
   department,
   employee,
+  lookup,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

@@ -10,6 +10,7 @@ import MetaData from './meta-data';
 import OtherDetails from './other-details';
 import Department from './department';
 import Employee from './employee';
+import Lookup from './lookup';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -24,6 +25,7 @@ export default () => {
         <Route path="other-details/*" element={<OtherDetails />} />
         <Route path="department/*" element={<Department />} />
         <Route path="employee/*" element={<Employee />} />
+        <Route path="lookup/*" element={<Lookup />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

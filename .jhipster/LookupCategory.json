@@ -1,0 +1,14 @@
+{
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "categoryCode",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
