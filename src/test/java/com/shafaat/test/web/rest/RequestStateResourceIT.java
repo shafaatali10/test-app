@@ -275,7 +275,7 @@ class RequestStateResourceIT {
         RequestState partialUpdatedRequestState = new RequestState();
         partialUpdatedRequestState.setId(requestState.getId());
 
-        partialUpdatedRequestState.notes(UPDATED_NOTES).status(UPDATED_STATUS).dueDate(UPDATED_DUE_DATE);
+        partialUpdatedRequestState.requestId(UPDATED_REQUEST_ID).notes(UPDATED_NOTES).dueDate(UPDATED_DUE_DATE);
 
         restRequestStateMockMvc
             .perform(
@@ -289,9 +289,9 @@ class RequestStateResourceIT {
         List<RequestState> requestStateList = requestStateRepository.findAll();
         assertThat(requestStateList).hasSize(databaseSizeBeforeUpdate);
         RequestState testRequestState = requestStateList.get(requestStateList.size() - 1);
-        assertThat(testRequestState.getRequestId()).isEqualTo(DEFAULT_REQUEST_ID);
+        assertThat(testRequestState.getRequestId()).isEqualTo(UPDATED_REQUEST_ID);
         assertThat(testRequestState.getNotes()).isEqualTo(UPDATED_NOTES);
-        assertThat(testRequestState.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testRequestState.getStatus()).isEqualTo(DEFAULT_STATUS);
         assertThat(testRequestState.getDueDate()).isEqualTo(UPDATED_DUE_DATE);
     }
 

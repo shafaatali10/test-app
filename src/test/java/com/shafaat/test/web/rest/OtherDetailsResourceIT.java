@@ -297,7 +297,7 @@ class OtherDetailsResourceIT {
         OtherDetails partialUpdatedOtherDetails = new OtherDetails();
         partialUpdatedOtherDetails.setId(otherDetails.getId());
 
-        partialUpdatedOtherDetails.isHubUsageReqd(UPDATED_IS_HUB_USAGE_REQD).tableAccessMethod(UPDATED_TABLE_ACCESS_METHOD);
+        partialUpdatedOtherDetails.isHubUsageReqd(UPDATED_IS_HUB_USAGE_REQD).orderId(UPDATED_ORDER_ID);
 
         restOtherDetailsMockMvc
             .perform(
@@ -314,9 +314,9 @@ class OtherDetailsResourceIT {
         assertThat(testOtherDetails.getMandatorColumn()).isEqualTo(DEFAULT_MANDATOR_COLUMN);
         assertThat(testOtherDetails.getIsHubUsageReqd()).isEqualTo(UPDATED_IS_HUB_USAGE_REQD);
         assertThat(testOtherDetails.getInsertChars()).isEqualTo(DEFAULT_INSERT_CHARS);
-        assertThat(testOtherDetails.getTableAccessMethod()).isEqualTo(UPDATED_TABLE_ACCESS_METHOD);
+        assertThat(testOtherDetails.getTableAccessMethod()).isEqualTo(DEFAULT_TABLE_ACCESS_METHOD);
         assertThat(testOtherDetails.getOneWmpView()).isEqualTo(DEFAULT_ONE_WMP_VIEW);
-        assertThat(testOtherDetails.getOrderId()).isEqualTo(DEFAULT_ORDER_ID);
+        assertThat(testOtherDetails.getOrderId()).isEqualTo(UPDATED_ORDER_ID);
     }
 
     @Test

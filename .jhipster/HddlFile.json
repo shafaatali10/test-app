@@ -1,5 +1,7 @@
 {
+  "changelogDate": "20231024073459",
   "dto": "no",
+  "entityTableName": "hddl_file",
   "fields": [
     {
       "fieldName": "swid",
@@ -24,8 +26,10 @@
     }
   ],
   "jpaMetamodelFiltering": false,
+  "name": "HddlFile",
   "pagination": "no",
   "readOnly": false,
   "relationships": [],
+  "searchEngine": "no",
   "service": "serviceClass"
 }

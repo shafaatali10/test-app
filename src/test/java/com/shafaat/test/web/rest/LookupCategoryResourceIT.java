@@ -248,8 +248,6 @@ class LookupCategoryResourceIT {
         LookupCategory partialUpdatedLookupCategory = new LookupCategory();
         partialUpdatedLookupCategory.setId(lookupCategory.getId());
 
-        partialUpdatedLookupCategory.categoryCode(UPDATED_CATEGORY_CODE);
-
         restLookupCategoryMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedLookupCategory.getId())
@@ -262,7 +260,7 @@ class LookupCategoryResourceIT {
         List<LookupCategory> lookupCategoryList = lookupCategoryRepository.findAll();
         assertThat(lookupCategoryList).hasSize(databaseSizeBeforeUpdate);
         LookupCategory testLookupCategory = lookupCategoryList.get(lookupCategoryList.size() - 1);
-        assertThat(testLookupCategory.getCategoryCode()).isEqualTo(UPDATED_CATEGORY_CODE);
+        assertThat(testLookupCategory.getCategoryCode()).isEqualTo(DEFAULT_CATEGORY_CODE);
     }
 
     @Test

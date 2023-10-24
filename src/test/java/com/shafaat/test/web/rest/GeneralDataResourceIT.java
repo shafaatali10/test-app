@@ -308,10 +308,10 @@ class GeneralDataResourceIT {
         partialUpdatedGeneralData.setId(generalData.getId());
 
         partialUpdatedGeneralData
+            .tableUsage(UPDATED_TABLE_USAGE)
             .dbSelection(UPDATED_DB_SELECTION)
-            .tableName(UPDATED_TABLE_NAME)
-            .hasDataMoreThan5Million(UPDATED_HAS_DATA_MORE_THAN_5_MILLION)
-            .isParallelizationReqd(UPDATED_IS_PARALLELIZATION_REQD);
+            .isParallelizationReqd(UPDATED_IS_PARALLELIZATION_REQD)
+            .orderId(UPDATED_ORDER_ID);
 
         restGeneralDataMockMvc
             .perform(
@@ -325,13 +325,13 @@ class GeneralDataResourceIT {
         List<GeneralData> generalDataList = generalDataRepository.findAll();
         assertThat(generalDataList).hasSize(databaseSizeBeforeUpdate);
         GeneralData testGeneralData = generalDataList.get(generalDataList.size() - 1);
-        assertThat(testGeneralData.getTableUsage()).isEqualTo(DEFAULT_TABLE_USAGE);
+        assertThat(testGeneralData.getTableUsage()).isEqualTo(UPDATED_TABLE_USAGE);
         assertThat(testGeneralData.getDbSelection()).isEqualTo(UPDATED_DB_SELECTION);
-        assertThat(testGeneralData.getTableName()).isEqualTo(UPDATED_TABLE_NAME);
-        assertThat(testGeneralData.getHasDataMoreThan5Million()).isEqualTo(UPDATED_HAS_DATA_MORE_THAN_5_MILLION);
+        assertThat(testGeneralData.getTableName()).isEqualTo(DEFAULT_TABLE_NAME);
+        assertThat(testGeneralData.getHasDataMoreThan5Million()).isEqualTo(DEFAULT_HAS_DATA_MORE_THAN_5_MILLION);
         assertThat(testGeneralData.getIsParallelizationReqd()).isEqualTo(UPDATED_IS_PARALLELIZATION_REQD);
         assertThat(testGeneralData.getRecoveryClass()).isEqualTo(DEFAULT_RECOVERY_CLASS);
-        assertThat(testGeneralData.getOrderId()).isEqualTo(DEFAULT_ORDER_ID);
+        assertThat(testGeneralData.getOrderId()).isEqualTo(UPDATED_ORDER_ID);
     }
 
     @Test

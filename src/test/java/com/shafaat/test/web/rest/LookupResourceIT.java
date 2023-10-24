@@ -317,7 +317,11 @@ class LookupResourceIT {
         Lookup partialUpdatedLookup = new Lookup();
         partialUpdatedLookup.setId(lookup.getId());
 
-        partialUpdatedLookup.lookupCode(UPDATED_LOOKUP_CODE).displaySequence(UPDATED_DISPLAY_SEQUENCE).category(UPDATED_CATEGORY);
+        partialUpdatedLookup
+            .lookupCode(UPDATED_LOOKUP_CODE)
+            .displaySequence(UPDATED_DISPLAY_SEQUENCE)
+            .viewName(UPDATED_VIEW_NAME)
+            .dependentCode(UPDATED_DEPENDENT_CODE);
 
         restLookupMockMvc
             .perform(
@@ -335,9 +339,9 @@ class LookupResourceIT {
         assertThat(testLookup.getLookupValue()).isEqualTo(DEFAULT_LOOKUP_VALUE);
         assertThat(testLookup.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testLookup.getDisplaySequence()).isEqualTo(UPDATED_DISPLAY_SEQUENCE);
-        assertThat(testLookup.getViewName()).isEqualTo(DEFAULT_VIEW_NAME);
-        assertThat(testLookup.getCategory()).isEqualTo(UPDATED_CATEGORY);
-        assertThat(testLookup.getDependentCode()).isEqualTo(DEFAULT_DEPENDENT_CODE);
+        assertThat(testLookup.getViewName()).isEqualTo(UPDATED_VIEW_NAME);
+        assertThat(testLookup.getCategory()).isEqualTo(DEFAULT_CATEGORY);
+        assertThat(testLookup.getDependentCode()).isEqualTo(UPDATED_DEPENDENT_CODE);
         assertThat(testLookup.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
     }
 
