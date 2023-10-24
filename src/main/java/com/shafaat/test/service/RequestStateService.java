@@ -2,14 +2,13 @@ package com.shafaat.test.service;
 
 import com.shafaat.test.domain.RequestState;
 import com.shafaat.test.repository.RequestStateRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service Implementation for managing {@link RequestState}.
@@ -35,6 +34,47 @@ public class RequestStateService {
     public RequestState save(RequestState requestState) {
         log.debug("Request to save RequestState : {}", requestState);
         return requestStateRepository.save(requestState);
+    }
+
+    /**
+     * Update a requestState.
+     *
+     * @param requestState the entity to save.
+     * @return the persisted entity.
+     */
+    public RequestState update(RequestState requestState) {
+        log.debug("Request to update RequestState : {}", requestState);
+        return requestStateRepository.save(requestState);
+    }
+
+    /**
+     * Partially update a requestState.
+     *
+     * @param requestState the entity to update partially.
+     * @return the persisted entity.
+     */
+    public Optional<RequestState> partialUpdate(RequestState requestState) {
+        log.debug("Request to partially update RequestState : {}", requestState);
+
+        return requestStateRepository
+            .findById(requestState.getId())
+            .map(existingRequestState -> {
+                if (requestState.getRequestId() != null) {
+                    existingRequestState.setRequestId(requestState.getRequestId());
+                }
+                if (requestState.getNotes() != null) {
+                    existingRequestState.setNotes(requestState.getNotes());
+                }
+                if (requestState.getStatus() != null) {
+                    existingRequestState.setStatus(requestState.getStatus());
+                }
+                if (requestState.getDueDate() != null) {
+                    existingRequestState.setDueDate(requestState.getDueDate());
+                }
+
+                return existingRequestState;
+            })
+            .map(requestStateRepository::save);
     }
 
     /**

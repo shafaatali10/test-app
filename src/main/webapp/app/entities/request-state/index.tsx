@@ -1,23 +1,23 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
+import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import RequestState from './request-state';
 import RequestStateDetail from './request-state-detail';
 import RequestStateUpdate from './request-state-update';
 import RequestStateDeleteDialog from './request-state-delete-dialog';
 
-const Routes = ({ match }) => (
-  <>
-    <Switch>
-      <ErrorBoundaryRoute exact path={`${match.url}/:id/delete`} component={RequestStateDeleteDialog} />
-      <ErrorBoundaryRoute exact path={`${match.url}/new`} component={RequestStateUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id/edit`} component={RequestStateUpdate} />
-      <ErrorBoundaryRoute exact path={`${match.url}/:id`} component={RequestStateDetail} />
-      <ErrorBoundaryRoute path={match.url} component={RequestState} />
-    </Switch>
-  </>
+const RequestStateRoutes = () => (
+  <ErrorBoundaryRoutes>
+    <Route index element={<RequestState />} />
+    <Route path="new" element={<RequestStateUpdate />} />
+    <Route path=":id">
+      <Route index element={<RequestStateDetail />} />
+      <Route path="edit" element={<RequestStateUpdate />} />
+      <Route path="delete" element={<RequestStateDeleteDialog />} />
+    </Route>
+  </ErrorBoundaryRoutes>
 );
 
-export default Routes;
+export default RequestStateRoutes;

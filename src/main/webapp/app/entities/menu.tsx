@@ -30,6 +30,12 @@ const EntitiesMenu = () => {
       <MenuItem icon="asterisk" to="/lookup">
         Lookup
       </MenuItem>
+      <MenuItem icon="asterisk" to="/request-state">
+        Request State
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/lookup-category">
+        Lookup Category
+      </MenuItem>
       {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
     </>
   );

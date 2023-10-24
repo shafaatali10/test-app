@@ -8,10 +8,10 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { IRequestState } from 'app/shared/model/request-state.model';
-import { getEntity, updateEntity, createEntity, reset } from './request-state.reducer';
+import { ILookupCategory } from 'app/shared/model/lookup-category.model';
+import { getEntity, updateEntity, createEntity, reset } from './lookup-category.reducer';
 
-export const RequestStateUpdate = () => {
+export const LookupCategoryUpdate = () => {
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -19,13 +19,13 @@ export const RequestStateUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
-  const requestStateEntity = useAppSelector(state => state.requestState.entity);
-  const loading = useAppSelector(state => state.requestState.loading);
-  const updating = useAppSelector(state => state.requestState.updating);
-  const updateSuccess = useAppSelector(state => state.requestState.updateSuccess);
+  const lookupCategoryEntity = useAppSelector(state => state.lookupCategory.entity);
+  const loading = useAppSelector(state => state.lookupCategory.loading);
+  const updating = useAppSelector(state => state.lookupCategory.updating);
+  const updateSuccess = useAppSelector(state => state.lookupCategory.updateSuccess);
 
   const handleClose = () => {
-    navigate('/request-state');
+    navigate('/lookup-category');
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const RequestStateUpdate = () => {
 
   const saveEntity = values => {
     const entity = {
-      ...requestStateEntity,
+      ...lookupCategoryEntity,
       ...values,
     };
 
@@ -59,15 +59,15 @@ export const RequestStateUpdate = () => {
     isNew
       ? {}
       : {
-          ...requestStateEntity,
+          ...lookupCategoryEntity,
         };
 
   return (
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="testAppApp.requestState.home.createOrEditLabel" data-cy="RequestStateCreateUpdateHeading">
-            <Translate contentKey="testAppApp.requestState.home.createOrEditLabel">Create or edit a RequestState</Translate>
+          <h2 id="testAppApp.lookupCategory.home.createOrEditLabel" data-cy="LookupCategoryCreateUpdateHeading">
+            <Translate contentKey="testAppApp.lookupCategory.home.createOrEditLabel">Create or edit a LookupCategory</Translate>
           </h2>
         </Col>
       </Row>
@@ -82,16 +82,19 @@ export const RequestStateUpdate = () => {
                   name="id"
                   required
                   readOnly
-                  id="request-state-id"
+                  id="lookup-category-id"
                   label={translate('global.field.id')}
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField label="Request Id" id="request-state-requestId" name="requestId" data-cy="requestId" type="text" />
-              <ValidatedField label="Notes" id="request-state-notes" name="notes" data-cy="notes" type="text" />
-              <ValidatedField label="Status" id="request-state-status" name="status" data-cy="status" type="text" />
-              <ValidatedField label="Due Date" id="request-state-dueDate" name="dueDate" data-cy="dueDate" type="date" />
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/request-state" replace color="info">
+              <ValidatedField
+                label="Category Code"
+                id="lookup-category-categoryCode"
+                name="categoryCode"
+                data-cy="categoryCode"
+                type="text"
+              />
+              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/lookup-category" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
@@ -112,4 +115,4 @@ export const RequestStateUpdate = () => {
   );
 };
 
-export default RequestStateUpdate;
+export default LookupCategoryUpdate;

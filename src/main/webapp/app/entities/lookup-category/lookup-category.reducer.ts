@@ -3,9 +3,9 @@ import { createAsyncThunk, isFulfilled, isPending, isRejected } from '@reduxjs/t
 import { ASC } from 'app/shared/util/pagination.constants';
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { IQueryParams, createEntitySlice, EntityState, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
-import { IRequestState, defaultValue } from 'app/shared/model/request-state.model';
+import { ILookupCategory, defaultValue } from 'app/shared/model/lookup-category.model';
 
-const initialState: EntityState<IRequestState> = {
+const initialState: EntityState<ILookupCategory> = {
   loading: false,
   errorMessage: null,
   entities: [],
@@ -14,28 +14,28 @@ const initialState: EntityState<IRequestState> = {
   updateSuccess: false,
 };
 
-const apiUrl = 'api/request-states';
+const apiUrl = 'api/lookup-categories';
 
 // Actions
 
-export const getEntities = createAsyncThunk('requestState/fetch_entity_list', async ({ sort }: IQueryParams) => {
+export const getEntities = createAsyncThunk('lookupCategory/fetch_entity_list', async ({ sort }: IQueryParams) => {
   const requestUrl = `${apiUrl}?${sort ? `sort=${sort}&` : ''}cacheBuster=${new Date().getTime()}`;
-  return axios.get<IRequestState[]>(requestUrl);
+  return axios.get<ILookupCategory[]>(requestUrl);
 });
 
 export const getEntity = createAsyncThunk(
-  'requestState/fetch_entity',
+  'lookupCategory/fetch_entity',
   async (id: string | number) => {
     const requestUrl = `${apiUrl}/${id}`;
-    return axios.get<IRequestState>(requestUrl);
+    return axios.get<ILookupCategory>(requestUrl);
   },
   { serializeError: serializeAxiosError }
 );
 
 export const createEntity = createAsyncThunk(
-  'requestState/create_entity',
-  async (entity: IRequestState, thunkAPI) => {
-    const result = await axios.post<IRequestState>(apiUrl, cleanEntity(entity));
+  'lookupCategory/create_entity',
+  async (entity: ILookupCategory, thunkAPI) => {
+    const result = await axios.post<ILookupCategory>(apiUrl, cleanEntity(entity));
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -43,9 +43,9 @@ export const createEntity = createAsyncThunk(
 );
 
 export const updateEntity = createAsyncThunk(
-  'requestState/update_entity',
-  async (entity: IRequestState, thunkAPI) => {
-    const result = await axios.put<IRequestState>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
+  'lookupCategory/update_entity',
+  async (entity: ILookupCategory, thunkAPI) => {
+    const result = await axios.put<ILookupCategory>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -53,9 +53,9 @@ export const updateEntity = createAsyncThunk(
 );
 
 export const partialUpdateEntity = createAsyncThunk(
-  'requestState/partial_update_entity',
-  async (entity: IRequestState, thunkAPI) => {
-    const result = await axios.patch<IRequestState>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
+  'lookupCategory/partial_update_entity',
+  async (entity: ILookupCategory, thunkAPI) => {
+    const result = await axios.patch<ILookupCategory>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -63,10 +63,10 @@ export const partialUpdateEntity = createAsyncThunk(
 );
 
 export const deleteEntity = createAsyncThunk(
-  'requestState/delete_entity',
+  'lookupCategory/delete_entity',
   async (id: string | number, thunkAPI) => {
     const requestUrl = `${apiUrl}/${id}`;
-    const result = await axios.delete<IRequestState>(requestUrl);
+    const result = await axios.delete<ILookupCategory>(requestUrl);
     thunkAPI.dispatch(getEntities({}));
     return result;
   },
@@ -75,8 +75,8 @@ export const deleteEntity = createAsyncThunk(
 
 // slice
 
-export const RequestStateSlice = createEntitySlice({
-  name: 'requestState',
+export const LookupCategorySlice = createEntitySlice({
+  name: 'lookupCategory',
   initialState,
   extraReducers(builder) {
     builder
@@ -124,7 +124,7 @@ export const RequestStateSlice = createEntitySlice({
   },
 });
 
-export const { reset } = RequestStateSlice.actions;
+export const { reset } = LookupCategorySlice.actions;
 
 // Reducer
-export default RequestStateSlice.reducer;
+export default LookupCategorySlice.reducer;

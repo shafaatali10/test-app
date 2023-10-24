@@ -317,13 +317,7 @@ class LookupResourceIT {
         Lookup partialUpdatedLookup = new Lookup();
         partialUpdatedLookup.setId(lookup.getId());
 
-        partialUpdatedLookup
-            .lookupCode(UPDATED_LOOKUP_CODE)
-            .lookupValue(UPDATED_LOOKUP_VALUE)
-            .displaySequence(UPDATED_DISPLAY_SEQUENCE)
-            .viewName(UPDATED_VIEW_NAME)
-            .category(UPDATED_CATEGORY)
-            .dependentCode(UPDATED_DEPENDENT_CODE);
+        partialUpdatedLookup.lookupCode(UPDATED_LOOKUP_CODE).displaySequence(UPDATED_DISPLAY_SEQUENCE).category(UPDATED_CATEGORY);
 
         restLookupMockMvc
             .perform(
@@ -338,12 +332,12 @@ class LookupResourceIT {
         assertThat(lookupList).hasSize(databaseSizeBeforeUpdate);
         Lookup testLookup = lookupList.get(lookupList.size() - 1);
         assertThat(testLookup.getLookupCode()).isEqualTo(UPDATED_LOOKUP_CODE);
-        assertThat(testLookup.getLookupValue()).isEqualTo(UPDATED_LOOKUP_VALUE);
+        assertThat(testLookup.getLookupValue()).isEqualTo(DEFAULT_LOOKUP_VALUE);
         assertThat(testLookup.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testLookup.getDisplaySequence()).isEqualTo(UPDATED_DISPLAY_SEQUENCE);
-        assertThat(testLookup.getViewName()).isEqualTo(UPDATED_VIEW_NAME);
+        assertThat(testLookup.getViewName()).isEqualTo(DEFAULT_VIEW_NAME);
         assertThat(testLookup.getCategory()).isEqualTo(UPDATED_CATEGORY);
-        assertThat(testLookup.getDependentCode()).isEqualTo(UPDATED_DEPENDENT_CODE);
+        assertThat(testLookup.getDependentCode()).isEqualTo(DEFAULT_DEPENDENT_CODE);
         assertThat(testLookup.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
     }
 

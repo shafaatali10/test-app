@@ -1,5 +1,7 @@
 {
+  "changelogDate": "20231023153335",
   "dto": "no",
+  "entityTableName": "lookup_category",
   "fields": [
     {
       "fieldName": "categoryCode",
@@ -7,8 +9,10 @@
     }
   ],
   "jpaMetamodelFiltering": false,
+  "name": "LookupCategory",
   "pagination": "no",
   "readOnly": false,
   "relationships": [],
+  "searchEngine": "no",
   "service": "serviceClass"
 }

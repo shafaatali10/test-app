@@ -1,13 +1,14 @@
 package com.shafaat.test.domain;
 
-import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-import com.shafaat.test.web.rest.TestUtil;
 
-public class RequestStateTest {
+import com.shafaat.test.web.rest.TestUtil;
+import org.junit.jupiter.api.Test;
+
+class RequestStateTest {
 
     @Test
-    public void equalsVerifier() throws Exception {
+    void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(RequestState.class);
         RequestState requestState1 = new RequestState();
         requestState1.setId(1L);

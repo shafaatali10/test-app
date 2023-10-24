@@ -1,11 +1,11 @@
-import { Moment } from 'moment';
+import dayjs from 'dayjs';
 
 export interface IRequestState {
   id?: number;
-  requestId?: number;
-  notes?: string;
-  status?: string;
-  dueDate?: Moment;
+  requestId?: number | null;
+  notes?: string | null;
+  status?: string | null;
+  dueDate?: string | null;
 }
 
 export const defaultValue: Readonly<IRequestState> = {};

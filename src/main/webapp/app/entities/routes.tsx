@@ -11,6 +11,8 @@ import OtherDetails from './other-details';
 import Department from './department';
 import Employee from './employee';
 import Lookup from './lookup';
+import RequestState from './request-state';
+import LookupCategory from './lookup-category';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -26,6 +28,8 @@ export default () => {
         <Route path="department/*" element={<Department />} />
         <Route path="employee/*" element={<Employee />} />
         <Route path="lookup/*" element={<Lookup />} />
+        <Route path="request-state/*" element={<RequestState />} />
+        <Route path="lookup-category/*" element={<LookupCategory />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

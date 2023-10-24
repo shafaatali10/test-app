@@ -5,9 +5,9 @@ import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, deleteEntity } from './request-state.reducer';
+import { getEntity, deleteEntity } from './lookup-category.reducer';
 
-export const RequestStateDeleteDialog = () => {
+export const LookupCategoryDeleteDialog = () => {
   const dispatch = useAppDispatch();
 
   const location = useLocation();
@@ -21,11 +21,11 @@ export const RequestStateDeleteDialog = () => {
     setLoadModal(true);
   }, []);
 
-  const requestStateEntity = useAppSelector(state => state.requestState.entity);
-  const updateSuccess = useAppSelector(state => state.requestState.updateSuccess);
+  const lookupCategoryEntity = useAppSelector(state => state.lookupCategory.entity);
+  const updateSuccess = useAppSelector(state => state.lookupCategory.updateSuccess);
 
   const handleClose = () => {
-    navigate('/request-state');
+    navigate('/lookup-category');
   };
 
   useEffect(() => {
@@ -36,17 +36,17 @@ export const RequestStateDeleteDialog = () => {
   }, [updateSuccess]);
 
   const confirmDelete = () => {
-    dispatch(deleteEntity(requestStateEntity.id));
+    dispatch(deleteEntity(lookupCategoryEntity.id));
   };
 
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose} data-cy="requestStateDeleteDialogHeading">
+      <ModalHeader toggle={handleClose} data-cy="lookupCategoryDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="testAppApp.requestState.delete.question">
-        <Translate contentKey="testAppApp.requestState.delete.question" interpolate={{ id: requestStateEntity.id }}>
-          Are you sure you want to delete this RequestState?
+      <ModalBody id="testAppApp.lookupCategory.delete.question">
+        <Translate contentKey="testAppApp.lookupCategory.delete.question" interpolate={{ id: lookupCategoryEntity.id }}>
+          Are you sure you want to delete this LookupCategory?
         </Translate>
       </ModalBody>
       <ModalFooter>
@@ -55,7 +55,7 @@ export const RequestStateDeleteDialog = () => {
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-requestState" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-lookupCategory" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -65,4 +65,4 @@ export const RequestStateDeleteDialog = () => {
   );
 };
 
-export default RequestStateDeleteDialog;
+export default LookupCategoryDeleteDialog;

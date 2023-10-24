@@ -26,6 +26,7 @@
     <include file="config/liquibase/changelog/20230622073538_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20230624165122_added_entity_Lookup.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20230912033821_added_entity_RequestState.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231023153335_added_entity_LookupCategory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20230622073538_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
